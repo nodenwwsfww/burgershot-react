@@ -34,12 +34,13 @@ const Item = styled.li`
   }
 `;
 
-const ListItems = ({itemList}) => (
+const ListItems = ({itemList, setOpenItem}) => (
   <List>
     {itemList.map(item => (
       <Item 
         key={item.id} 
         img={item.img}
+        onClick={() => setOpenItem(item)}
       >
         <p>{item.name}</p>
         <p>{item.price.toLocaleString('ru-RU', {currency: 'rub', style: 'currency'})}</p>
