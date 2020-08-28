@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import ButtonCheckout from './ButtonCheckout';
+import ButtonCheckout from '../Style/ButtonCheckout';
 
 const OverLay = styled.div`
     display: flex;
@@ -35,18 +35,6 @@ const Banner = styled.div`
     margin-bottom: 20px;
 `;
 
-const Button = styled.button`
-    background: #299B01;
-    font-size: 21px;
-    line-height: 25px;
-    color: #FFFFFF;
-    padding: 20px 80px;
-    border: none;
-    margin: auto;
-    margin-bottom: 40px;
-    max-width: 250px;
-`; 
-
 const Content = styled.section`
     display: flex;
     flex-direction: column;
@@ -67,13 +55,18 @@ const HeaderContent = styled.div`
     line-height: 53px;
 `;
 
-const ModalItem = ({openItem, setOpenItem}) => {
-    if (!openItem) return null;
+const ModalItem = ({openItem, setOpenItem, cart, setCart}) => {
 
-    function closeModal ({target}) {
-        if (target.id === 'modalitem-overlay') {
+    function closeModal (e) {
+        if (!e || e.target.id === 'modalitem-overlay') {
             setOpenItem(null);
         }
+    }
+
+    const order = {...openItem};
+    function addToCart(e) {
+        setCart([...cart, order]);
+        closeModal();
     }
 
     return (
@@ -89,7 +82,7 @@ const ModalItem = ({openItem, setOpenItem}) => {
                         <div>{openItem.name}</div>
                         <div>{openItem.price.toLocaleString('ru-RU', {style: 'currency', currency: 'rub'})}</div>
                     </HeaderContent>
-                    <ButtonCheckout>Добавить</ButtonCheckout>
+                    <ButtonCheckout onClick={addToCart}>Добавить</ButtonCheckout>
                 </Content>
 
             </Modal>
