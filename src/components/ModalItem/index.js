@@ -1,6 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
 import ButtonCheckout from '../Style/ButtonCheckout';
+import CountItem from './CountItem';
+import useCount from '../Hooks/useCount';
+
+import toCurrency from '../Utils/toCurrency';
 
 const OverLay = styled.div`
     display: flex;
@@ -55,15 +59,28 @@ const HeaderContent = styled.div`
     line-height: 53px;
 `;
 
+const TotalPriceItem = styled.div`
+    display: flex;
+    justify-content: space-between;
+`;
+
 const ModalItem = ({openItem, setOpenItem, cart, setCart}) => {
 
+    const counter = useCount();
     function closeModal (e) {
         if (!e || e.target.id === 'modalitem-overlay') {
             setOpenItem(null);
         }
     }
 
-    const order = {...openItem};
+    const order = {...openItem, count: counter.count};
+
+    function computeTotalOrderPrice(order)
+    {
+        order.totalPrice = order.price * order.count;
+        return order.totalPrice;
+    }
+
     function addToCart(e) {
         setCart([...cart, order]);
         closeModal();
@@ -80,8 +97,13 @@ const ModalItem = ({openItem, setOpenItem, cart, setCart}) => {
                 <Content>
                     <HeaderContent>
                         <div>{openItem.name}</div>
-                        <div>{openItem.price.toLocaleString('ru-RU', {style: 'currency', currency: 'rub'})}</div>
+                        <div>{toCurrency(openItem.price)}</div>
                     </HeaderContent>
+                    <CountItem {...counter}/>
+                    <TotalPriceItem>
+                        <span>Цена:</span>
+                        <span>{toCurrency(computeTotalOrderPrice(order))}</span>
+                    </TotalPriceItem>
                     <ButtonCheckout onClick={addToCart}>Добавить</ButtonCheckout>
                 </Content>
 

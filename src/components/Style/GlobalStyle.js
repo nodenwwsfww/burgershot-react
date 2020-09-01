@@ -41,11 +41,20 @@ const GlobalStyle = createGlobalStyle `
         max-width: 100%;
         height: auto;
     }
-        button {
+    button {
         cursor: pointer;
     }
-        input, button {
-        font-family: inherit;
+    input, button {
+        font: inherit;
+    }
+
+    input[type="number"] {
+        --moz-appearance: textfield;
+    }
+    
+    input::webkit-outer-spin-button,
+    input::webkit-inter-spin-button {
+        -webkit-appearance: textfield;
     }
 `;
 

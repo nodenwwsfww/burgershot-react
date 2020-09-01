@@ -3,6 +3,8 @@ import styled from 'styled-components';
 import ButtonCheckout from '../Style/ButtonCheckout';
 import OrderListItem from './OrderListItem';
 
+import toCurrency from '../Utils/toCurrency';
+
 const OrderStyled = styled.section`
   position: fixed;
   top: 80px;
@@ -47,6 +49,18 @@ const EmptyList = styled.p`
 
 
 const Order = ({ cart, setCart }) => {
+
+  function computeTotalCartPrice(cart) {
+    if (!cart.length) return 0;
+    return cart.reduce((total, order) => total += +order.totalPrice, 0);
+  }
+
+
+  function computeTotalCount(cart) {
+    if (!cart.length) return 0;
+    return cart.reduce((total, order) => total += +order.count, 0);
+  }
+
   return (
     <OrderStyled>
       <OrderTitle>Ваш заказ</OrderTitle>
@@ -57,9 +71,9 @@ const Order = ({ cart, setCart }) => {
 
       </OrderContent>
       <Total>
-        <span>Итого</span>
-        <span>5</span>
-        <TotalPrice>850</TotalPrice>
+        <span>{computeTotalCount(cart)}</span>
+        <span>{computeTotalCartPrice}</span>
+        <TotalPrice>{toCurrency(computeTotalCartPrice(cart))}</TotalPrice>
       </Total>
       <ButtonCheckout>Оформить</ButtonCheckout>
     </OrderStyled>
