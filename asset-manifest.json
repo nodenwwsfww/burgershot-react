@@ -1,23 +1,23 @@
 {
   "files": {
-    "main.js": "/static/js/main.eba57d53.chunk.js",
-    "main.js.map": "/static/js/main.eba57d53.chunk.js.map",
-    "runtime-main.js": "/static/js/runtime-main.38d66a2b.js",
-    "runtime-main.js.map": "/static/js/runtime-main.38d66a2b.js.map",
-    "static/js/2.2667648d.chunk.js": "/static/js/2.2667648d.chunk.js",
-    "static/js/2.2667648d.chunk.js.map": "/static/js/2.2667648d.chunk.js.map",
-    "index.html": "/index.html",
-    "precache-manifest.796da58151b861e604e5578f0222986c.js": "/precache-manifest.796da58151b861e604e5578f0222986c.js",
-    "service-worker.js": "/service-worker.js",
-    "static/js/2.2667648d.chunk.js.LICENSE.txt": "/static/js/2.2667648d.chunk.js.LICENSE.txt",
-    "static/media/banner.svg": "/static/media/banner.d202f292.svg",
-    "static/media/logo.svg": "/static/media/logo.cfe37dbc.svg",
-    "static/media/sign.svg": "/static/media/sign.6ea25215.svg",
-    "static/media/trash.svg": "/static/media/trash.db2d7696.svg"
+    "main.js": "/burgershot-MERN/static/js/main.5299853e.chunk.js",
+    "main.js.map": "/burgershot-MERN/static/js/main.5299853e.chunk.js.map",
+    "runtime-main.js": "/burgershot-MERN/static/js/runtime-main.e32d21a6.js",
+    "runtime-main.js.map": "/burgershot-MERN/static/js/runtime-main.e32d21a6.js.map",
+    "static/js/2.90d5f3a8.chunk.js": "/burgershot-MERN/static/js/2.90d5f3a8.chunk.js",
+    "static/js/2.90d5f3a8.chunk.js.map": "/burgershot-MERN/static/js/2.90d5f3a8.chunk.js.map",
+    "index.html": "/burgershot-MERN/index.html",
+    "precache-manifest.9a71c432b54463d31a8ce9cdc21b1fb7.js": "/burgershot-MERN/precache-manifest.9a71c432b54463d31a8ce9cdc21b1fb7.js",
+    "service-worker.js": "/burgershot-MERN/service-worker.js",
+    "static/js/2.90d5f3a8.chunk.js.LICENSE.txt": "/burgershot-MERN/static/js/2.90d5f3a8.chunk.js.LICENSE.txt",
+    "static/media/banner.svg": "/burgershot-MERN/static/media/banner.d202f292.svg",
+    "static/media/logo.svg": "/burgershot-MERN/static/media/logo.cfe37dbc.svg",
+    "static/media/sign.svg": "/burgershot-MERN/static/media/sign.6ea25215.svg",
+    "static/media/trash.svg": "/burgershot-MERN/static/media/trash.db2d7696.svg"
   },
   "entrypoints": [
-    "static/js/runtime-main.38d66a2b.js",
-    "static/js/2.2667648d.chunk.js",
-    "static/js/main.eba57d53.chunk.js"
+    "static/js/runtime-main.e32d21a6.js",
+    "static/js/2.90d5f3a8.chunk.js",
+    "static/js/main.5299853e.chunk.js"
   ]
 }
