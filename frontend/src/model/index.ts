@@ -1,9 +1,9 @@
 export interface IOrder {
     name: string,
     img: string,
-    price: number,
+    price: number, // Cost of 1 item
     count: number,
-    totalPrice: number,
+    totalPrice: number, // Total cost = count * price
 };
 
 export interface IMenuItem {

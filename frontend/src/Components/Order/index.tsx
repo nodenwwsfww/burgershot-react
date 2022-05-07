@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FC } from 'react';
 import styled from 'styled-components';
 import ButtonCheckout from '../Style/ButtonCheckout';
 import OrderListItem from './OrderListItem';
@@ -49,16 +49,20 @@ const EmptyList = styled.p`
   text-align: center;
 `;
 
+interface OrderProps {
+  cart: Array<IOrder>,
+  setCart: (cart: Array<IOrder>) => void,
+}
 
-const Order = ({ cart : Array<IOrder>, setCart: R }) => {
+const Order: FC<OrderProps> = ({ cart, setCart }) => {
 
-  function computeTotalCartPrice(cart) {
+  function computeTotalCartPrice(cart: Array<IOrder>) {
     if (!cart.length) return 0;
     return cart.reduce((total, order) => total += +order.totalPrice, 0);
   }
 
 
-  function computeTotalCount(cart) {
+  function computeTotalCount(cart:  Array<IOrder>) {
     if (!cart.length) return 0;
     return cart.reduce((total, order) => total += +order.count, 0);
   }
