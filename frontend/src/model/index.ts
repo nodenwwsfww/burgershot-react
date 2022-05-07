@@ -2,6 +2,8 @@ export interface IOrder {
     name: string,
     img: string,
     price: number,
+    count: number,
+    totalPrice: number,
 };
 
 export interface IMenuItem {

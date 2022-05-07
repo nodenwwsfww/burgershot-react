@@ -1,9 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
-import ButtonCheckout from '../../Style/ButtonCheckout';
+import ButtonCheckout from '../Style/ButtonCheckout';
 import OrderListItem from './OrderListItem';
 
-import toCurrency from '../../Utils/toCurrency';
+import toCurrency from '../../utils/toCurrency';
 
 import { IOrder } from '../../model';
 

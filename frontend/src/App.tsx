@@ -1,14 +1,14 @@
 import React from 'react';
 
-import GlobalStyle from './Style/GlobalStyle';
+import GlobalStyle from './components/Style/GlobalStyle';
 
-import NavBar from './Components/NavBar';
-import Menu from './Components/Menu';
-import ModalItem from './Components/ModalItem';
-import Order from './Components/Order';
+import NavBar from './components/NavBar';
+import Menu from './components/Menu';
+import ModalItem from './components/ModalItem';
+import Order from './components/Order';
 
-import useOpenItem from './Hooks/useOpenItem';
-import useCart from './Hooks/useCart';
+import useOpenItem from './hooks/useOpenItem';
+import useCart from './hooks/useCart';
 
 const App = () => {
   const openItem = useOpenItem();

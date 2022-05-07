@@ -1,10 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
-import ButtonCheckout from '../../Style/ButtonCheckout';
+import ButtonCheckout from '../Style/ButtonCheckout';
 import CountItem from './CountItem';
-import useCount from '../../Hooks/useCount';
+import useCount from '../../hooks/useCount';
 
-import toCurrency from '../../Utils/toCurrency';
+import toCurrency from '../../utils/toCurrency';
 
 const OverLay = styled.div`
     display: flex;

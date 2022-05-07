@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { FC } from 'react';
 import styled from 'styled-components';
 import trashImg from '../../img/trash.svg';
+import {IOrder} from '../../model';
 
-
-import toCurrency from '../../Utils/toCurrency';
+import toCurrency from '../../utils/toCurrency';
 
 const OrderItemStyled = styled.li`
   display: flex;
@@ -29,8 +29,11 @@ const TrashButton = styled.button`
 
 const ItemCount = styled.span`
 `;
+interface OrderListItemProps {
+  order:IOrder
+}
 
-const OrderListItem = ({order}) => {
+const OrderListItem: FC<OrderListItemProps> = ({order}) => {
     return (
         <OrderItemStyled>
             <ItemName>{order.name}</ItemName>
