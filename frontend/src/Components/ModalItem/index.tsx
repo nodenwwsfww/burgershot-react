@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { ChangeEvent, Dispatch, FC, SetStateAction } from 'react';
 import styled from 'styled-components';
 import ButtonCheckout from '../Style/ButtonCheckout';
 import CountItem from './CountItem';
 import useCount from '../../hooks/useCount';
 
 import toCurrency from '../../utils/toCurrency';
+import { IMenuItem, IOrder } from '../../model';
 
 const OverLay = styled.div`
     display: flex;
@@ -63,8 +64,13 @@ const TotalPriceItem = styled.div`
     display: flex;
     justify-content: space-between;
 `;
-
-const ModalItem = ({openItem, setOpenItem, cart, setCart}) => {
+interface ModalItemProps {
+    openItem: IMenuItem | null,
+    setOpenItem: Dispatch<SetStateAction<IMenuItem | null>>,
+    cart: Array<IOrder>,
+    setCart: Dispatch<SetStateAction<Array<IOrder>>>
+}
+const ModalItem: FC<ModalItemProps> = ({openItem, setOpenItem, cart, setCart}) => {
 
     const counter = useCount();
     function closeModal (e) {
@@ -75,15 +81,15 @@ const ModalItem = ({openItem, setOpenItem, cart, setCart}) => {
 
     const order = {...openItem, count: counter.count};
 
-    function computeTotalOrderPrice(order)
+    function computeTotalOrderPrice(order: IOrder)
     {
         order.totalPrice = order.price * order.count;
         return order.totalPrice;
     }
 
-    function addToCart(e) {
+    function addToCart(event: ChangeEvent<HTMLInputElement>) {
         setCart([...cart, order]);
-        closeModal();
+        closeModal(event);
     }
 
     return (

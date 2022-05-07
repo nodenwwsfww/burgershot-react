@@ -1,8 +1,8 @@
-import React from "react";
+import {ChangeEvent, useState} from "react";
 
 export default function useCount() {
-    const [count, setCount] = React.useState(1);
+    const [count, setCount] = useState(1);
 
-    const onChange = (event: React.ChangeEvent<HTMLInputElement>) => setCount(+event.target.value);
+    const onChange = (event: ChangeEvent<HTMLInputElement>) => setCount(+event.target.value);
     return { count, setCount, onChange}
 }

@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { Dispatch, FC, SetStateAction } from 'react';
 import styled from 'styled-components';
 import ButtonCheckout from '../Style/ButtonCheckout';
 import OrderListItem from './OrderListItem';
@@ -51,7 +51,7 @@ const EmptyList = styled.p`
 
 interface OrderProps {
   cart: Array<IOrder>,
-  setCart: React.Dispatch<React.SetStateAction<Array<IOrder>>>
+  setCart: Dispatch<SetStateAction<Array<IOrder>>>
 }
 
 const Order: FC<OrderProps> = ({ cart, setCart }) => {

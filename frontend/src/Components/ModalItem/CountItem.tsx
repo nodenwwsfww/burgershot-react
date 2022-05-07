@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ChangeEvent, Dispatch, FC, SetStateAction } from 'react';
 import styled from 'styled-components';
 
 const CountWrapper = styled.div`
@@ -15,8 +15,12 @@ const ButtonCount = styled.button`
     width: 25px;
     background-color: transparent;
 `;
-
-const CountItem = ({count, setCount, onChange}) => {
+interface CountItemProps {
+    count: number,
+    setCount: Dispatch<SetStateAction<number>>,
+    onChange: (event: ChangeEvent<HTMLInputElement>) => void,
+}
+const CountItem: FC<CountItemProps> = ({count, setCount, onChange}) => {
 
     return (
         <CountWrapper>

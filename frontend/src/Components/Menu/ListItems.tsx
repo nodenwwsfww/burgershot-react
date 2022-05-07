@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { Dispatch, FC, SetStateAction } from 'react';
 import styled from 'styled-components';
 import toCurrency from '../../utils/toCurrency';
 import {IMenuItem} from '../../model';
@@ -43,7 +43,7 @@ const Item = styled.li`
 `;
 interface ListItemsProps {
   itemList: IMenuItem[],
-  setOpenItem: React.Dispatch<React.SetStateAction<IMenuItem | null>>,
+  setOpenItem: Dispatch<SetStateAction<IMenuItem | null>>,
 }
 const ListItems: FC<ListItemsProps> = ({itemList, setOpenItem}) => (
   <List>

@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { Dispatch, FC, SetStateAction } from 'react';
 import styled from 'styled-components';
 import dbMenu from './DBMenu';
 import ListItems from './ListItems';
@@ -16,7 +16,7 @@ const SectionMenu = styled.section`
 
 interface MenuProps {
   openItem: IMenuItem | null,
-  setOpenItem: React.Dispatch<React.SetStateAction<IMenuItem | null>>,
+  setOpenItem: Dispatch<SetStateAction<IMenuItem | null>>,
 }
 
 const Menu: FC<MenuProps>= ({setOpenItem}) => (
