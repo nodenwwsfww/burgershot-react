@@ -5,7 +5,7 @@ import OrderListItem from './OrderListItem';
 
 import toCurrency from '../../Utils/toCurrency';
 
-import { IOrder } from '../../Interfaces';
+import { IOrder } from '../../model';
 
 const OrderStyled = styled.section`
   position: fixed;

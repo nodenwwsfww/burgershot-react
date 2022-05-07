@@ -17,6 +17,7 @@ const App = () => {
   return (
     <>
       <GlobalStyle/>
+      
       <NavBar/>
       <Order {...cart}/>
       <Menu {...openItem}/>

@@ -20,7 +20,7 @@ const Menu = ({setOpenItem}) => (
     <SectionMenu>
       <h2>Бургер</h2>
       <ListItems 
-        itemList={dbMenu.burger} 
+        itemList={dbMenu.burgers} 
         setOpenItem={setOpenItem}
       />
     </SectionMenu>

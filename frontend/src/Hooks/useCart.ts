@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { IOrder } from '../Interfaces';
+import { IOrder } from '../model';
 
 export default function useOrders() {
     const [cart, setCart] = useState<IOrder>([]);
