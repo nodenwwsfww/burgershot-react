@@ -1,17 +1,24 @@
-import React from 'react';
+import React, { FC } from 'react';
 import styled from 'styled-components';
 import toCurrency from '../../utils/toCurrency';
+import {IMenuItem} from '../../model';
 
 const List = styled.ul`
   display: flex;
   flex-wrap: wrap;
 `;
 
+interface ItemProps {
+  key: number,
+  img: string,
+  onClick: () => void,
+}
+
 const Item = styled.li`
   position: relative;
   width: 400px;
   height: 155px;
-  background: ${({ img }) => `url(${img})` } center/cover;
+  background: ${(props: ItemProps) => `url(${props.img})` } center/cover;
   margin-top: 30px;
   margin-right: 30px;
   padding: 15px;
@@ -34,10 +41,13 @@ const Item = styled.li`
     box-shadow: 0 0 20px 2px #299B01;
   }
 `;
-
-const ListItems = ({itemList, setOpenItem}) => (
+interface ListItemsProps {
+  itemList: IMenuItem[],
+  setOpenItem: React.Dispatch<React.SetStateAction<IMenuItem | null>>,
+}
+const ListItems: FC<ListItemsProps> = ({itemList, setOpenItem}) => (
   <List>
-    {itemList.map(item => (
+    {itemList.map((item: IMenuItem) => (
       <Item 
         key={item.id} 
         img={item.img}

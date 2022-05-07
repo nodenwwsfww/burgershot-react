@@ -51,7 +51,7 @@ const EmptyList = styled.p`
 
 interface OrderProps {
   cart: Array<IOrder>,
-  setCart: (cart: Array<IOrder>) => void,
+  setCart: React.Dispatch<React.SetStateAction<Array<IOrder>>>
 }
 
 const Order: FC<OrderProps> = ({ cart, setCart }) => {

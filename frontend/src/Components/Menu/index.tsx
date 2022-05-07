@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { FC } from 'react';
 import styled from 'styled-components';
 import dbMenu from './DBMenu';
 import ListItems from './ListItems';
 import BannerImg from './Banner';
+import { IMenuItem } from '../../model';
 
 const MenuStyled = styled.main`
   background-color: #ccc;
@@ -12,7 +13,13 @@ const MenuStyled = styled.main`
 const SectionMenu = styled.section`
   padding: 15px;
 `;
-const Menu = ({setOpenItem}) => (
+
+interface MenuProps {
+  openItem: IMenuItem | null,
+  setOpenItem: React.Dispatch<React.SetStateAction<IMenuItem | null>>,
+}
+
+const Menu: FC<MenuProps>= ({setOpenItem}) => (
   <MenuStyled>
 
     <BannerImg/>
