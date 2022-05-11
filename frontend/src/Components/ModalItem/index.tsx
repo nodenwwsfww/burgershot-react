@@ -1,4 +1,4 @@
-import React, { ChangeEvent, Dispatch, FC, MouseEventHandler, SetStateAction } from 'react';
+import React, { ChangeEvent, Dispatch, FC, MouseEvent, SetStateAction } from 'react';
 import styled from 'styled-components';
 import ButtonCheckout from '../Style/ButtonCheckout';
 import CountItem from './CountItem';
@@ -76,21 +76,22 @@ interface ModalItemProps {
 const ModalItem: FC<ModalItemProps> = ({openItem, setOpenItem, cart, setCart}) => {
 
     const counter = useCount();
-    function closeModal (event: MouseEventHandler<HTMLDivElement>) {
-        /* if (!event || event.target.id === 'modalitem-overlay') {
+    function closeModal (event: MouseEvent | ChangeEvent) {
+/*         if (!event || event.target.id === 'modalitem-overlay') {
             setOpenItem(null);
-        } need to check */
+        } need to check */ 
     }
+    const computeTotalOrderPrice = (price: number, count: number): number  => price * count;
 
-    const order = {...openItem, count: counter.count};
 
-    function computeTotalOrderPrice(order: IOrder)
-    {
-        order.totalPrice = order.price * order.count;
-        return order.totalPrice;
-    }
+    const order: IOrder = {
+        ...openItem, 
+        count: counter.count,
+        totalPrice: computeTotalOrderPrice(openItem.price, counter.count),
+    };     
 
-    function addToCart(event: ChangeEvent<HTMLInputElement>) {
+
+    function addToCart(event: MouseEvent) {
         setCart([...cart, order]);
         closeModal(event);
     }
@@ -111,7 +112,7 @@ const ModalItem: FC<ModalItemProps> = ({openItem, setOpenItem, cart, setCart}) =
                     <CountItem {...counter}/>
                     <TotalPriceItem>
                         <span>Цена:</span>
-                        <span>{toCurrency(computeTotalOrderPrice(order))}</span>
+                        <span>{toCurrency(computeTotalOrderPrice(order.price, order.count))}</span>
                     </TotalPriceItem>
                     <ButtonCheckout onClick={addToCart}>Добавить</ButtonCheckout>
                 </Content>

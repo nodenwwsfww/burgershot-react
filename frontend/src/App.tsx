@@ -21,7 +21,8 @@ const App = () => {
       <NavBar/>
       <Order {...cart}/>
       <Menu {...openItem}/>
-      {openItem.openItem ? <ModalItem {...openItem} {...cart}/> : null}
+      {(openItem.openItem !== null) ? 
+        <ModalItem openItem = {openItem.openItem} setOpenItem={openItem.setOpenItem} {...cart}/> : null}
     </>
   );
 };
