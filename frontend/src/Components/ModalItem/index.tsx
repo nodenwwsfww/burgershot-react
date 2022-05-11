@@ -1,4 +1,4 @@
-import React, { ChangeEvent, Dispatch, FC, SetStateAction } from 'react';
+import React, { ChangeEvent, Dispatch, FC, MouseEventHandler, SetStateAction } from 'react';
 import styled from 'styled-components';
 import ButtonCheckout from '../Style/ButtonCheckout';
 import CountItem from './CountItem';
@@ -31,10 +31,13 @@ const Modal = styled.div`
     flex-basis: auto;
 `;
 
+interface BannerProps {
+    img: string
+}
 const Banner = styled.div`
     height: 200px;
     width: 100%;
-    background-image: url(${({img}) => img});
+    background-image: ${(props: BannerProps) => `url(${props.img})` };
     background-size: cover;
     background-position: center;
     margin-bottom: 20px;
@@ -65,7 +68,7 @@ const TotalPriceItem = styled.div`
     justify-content: space-between;
 `;
 interface ModalItemProps {
-    openItem: IMenuItem | null,
+    openItem: IMenuItem,
     setOpenItem: Dispatch<SetStateAction<IMenuItem | null>>,
     cart: Array<IOrder>,
     setCart: Dispatch<SetStateAction<Array<IOrder>>>
@@ -73,10 +76,10 @@ interface ModalItemProps {
 const ModalItem: FC<ModalItemProps> = ({openItem, setOpenItem, cart, setCart}) => {
 
     const counter = useCount();
-    function closeModal (e) {
-        if (!e || e.target.id === 'modalitem-overlay') {
+    function closeModal (event: MouseEventHandler<HTMLDivElement>) {
+        /* if (!event || event.target.id === 'modalitem-overlay') {
             setOpenItem(null);
-        }
+        } need to check */
     }
 
     const order = {...openItem, count: counter.count};
